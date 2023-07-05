@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1></h1>
+
+<div id="ktens">
+  <% @ktens.each do |kten| %>
+    <%= render kten %>
+    <p>
+      <%= link_to "Show this kten", kten %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New kten", new_kten_path %>

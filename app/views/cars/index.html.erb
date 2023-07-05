@@ -1,0 +1,49 @@
+<% if user_signed_in? %>
+
+<h1>Cars list</h1>
+<table class="table table-striped  table-bordered table-hover " >
+  <thead class="thead-dark" >
+    <tr>
+      <th>first name</th>
+       <th>Last name </th>
+        <th>Email</th>
+         <th>Phone</th>
+          <th>Twitter </th>
+           <th>user id </th>
+           <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>   <% @cars.each do |car| %>
+    <% if car.user == current_user %>
+
+    <tr>
+        
+        <td><%= car.first_name %></td>
+        <td><%= car.last_name %></td>
+        <td><%= car.email %></td>
+        <td><%= car.phone %></td>
+        <td><%= car.twitter %></td>
+        <td><%= car.user_id %></td>
+       <td><%= link_to "Show ", car %></td>
+
+
+<td><%= button_to  'Delete', car, method: :delete,data:{ turbo_confirm:"Are you sure?"},
+class:'btn btn-outline-danger btn-sm'%></td>
+
+       </tr>
+             <% end %>
+       <% end %>
+  </tbody>
+</table>
+
+
+
+<%= link_to "New car", new_car_path, class:'btn btn-secondary'%>
+
+<% else %>
+<h1> hello world </h1>
+<p>this my first web page .............
+
+</p>
+<% end %>
+

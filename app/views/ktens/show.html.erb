@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @kten %>
+
+<div>rails
+  <%= link_to "Edit this kten", edit_kten_path(@kten) %> |
+  <%= link_to "Back to ktens", ktens_path %>
+
+  <%= button_to "Destroy ", @kten, method: :delete, data: { confirm: 'are you sure?'} %>
+</div>

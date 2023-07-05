@@ -1,0 +1,48 @@
+<%= form_with(model: car) do |form| %>
+  <% if car.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+        <% car.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group" >
+    <% form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name, class:"form-control",placeholder:"firstname" %>
+  </div>
+
+  <div class="form-group" >
+    <% form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name, class:"form-control",placeholder:"lastname" %>
+  </div>
+
+  <div class="form-group">
+    <%form.label :email, style: "display: block" %>
+    <%= form.text_field :email, class:"form-control",placeholder:"Email" %>
+  </div>
+
+  <div class="form-group">
+    <%form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone, class:"form-control",placeholder:"Phone" %>
+  </div>
+
+  <div class="form-group">
+    <%form.label :twitter, style: "display: block" %>
+    <%= form.text_field :twitter, class:"form-control",placeholder:"Twitter"%>
+  </div>
+
+
+<div class="form-group">
+    
+    <%= form.number_field :user_id,id: :car_user_id, class:"form-control",value: current_user.id, type: :hidden%>
+  </div>
+
+  <div>
+    <%= form.submit   class:'btn btn-secondary' %>
+  </div>
+<% end %>
